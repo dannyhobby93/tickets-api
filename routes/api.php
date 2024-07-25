@@ -5,12 +5,12 @@ use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// localhost:8000/api/v1
-// domain/api/resource/{identifier}/action/
+// localhost:8000/api/v1/tickets/1/delete
+// domain/api/version/resource/{identifier}/action/
 // Resources - Models
 // tickets
 // users
-// contracts
+// support contracts
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
