@@ -72,8 +72,11 @@ abstract class QueryFilter
             $direction = Str::startsWith($sortable, '-') ? 'desc' : 'asc';
             $column = Str::of($sortable)->remove('-')->snake()->value();
 
-            if (in_array($column, $this->sortable)) {
-                $this->builder->orderBy($column, $direction);
+            if (in_array($column, $this->sortable) && !array_key_exists($column, $this->sortable)) {
+
+                $column_name = $this->sortable[$column] ?? $column;
+
+                $this->builder->orderBy($column_name, $direction);
             }
         }
     }
