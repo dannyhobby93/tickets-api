@@ -6,16 +6,16 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BaseTicketRequest extends FormRequest
 {
-    public function mappedAttributes()
+    public function mappedAttributes(array $other_attributes = [])
     {
-        $attributes_map = [
+        $attributes_map = array_merge([
             'data.attributes.title' => 'title',
             'data.attributes.description' => 'description',
             'data.attributes.status' => 'status',
             'data.attributes.createdAt' => 'created_at',
             'data.attributes.updatedAt' => 'updated_at',
             'data.relationships.author.data.id' => 'user_id'
-        ];
+        ], $other_attributes);
 
         $attributes_to_update = [];
 
@@ -27,6 +27,7 @@ class BaseTicketRequest extends FormRequest
 
         return $attributes_to_update;
     }
+
     public function messages()
     {
         return [
