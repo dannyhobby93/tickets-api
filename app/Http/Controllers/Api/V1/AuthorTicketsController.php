@@ -6,7 +6,6 @@ use App\Http\Requests\Api\V1\ReplaceTicketRequest;
 use App\Http\Requests\Api\V1\UpdateTicketRequest;
 use App\Models\Ticket;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 use App\Http\Filters\V1\TicketFilter;
 use App\Http\Resources\V1\TicketResource;
 use App\Http\Requests\Api\V1\StoreTicketRequest;
@@ -29,7 +28,6 @@ class AuthorTicketsController extends ApiController
 
     public function replace(ReplaceTicketRequest $request, $author_id, $ticket_id)
     {
-        // PUT
         try {
             $ticket = Ticket::findOrFail($ticket_id);
 
@@ -46,7 +44,6 @@ class AuthorTicketsController extends ApiController
 
     public function update(UpdateTicketRequest $request, $author_id, $ticket_id)
     {
-        // PATCH
         try {
             $ticket = Ticket::findOrFail($ticket_id);
 
