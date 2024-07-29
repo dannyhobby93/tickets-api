@@ -8,6 +8,13 @@ use App\Models\User;
 
 class AuthorsController extends ApiController
 {
+    /**
+     * Get authors.
+     * 
+     * Retrieves all users that created a ticket.
+     * 
+     * @group Showing Authors
+     */
     public function index(AuthorFilter $filters)
     {
         return UserResource::collection(
@@ -17,6 +24,13 @@ class AuthorsController extends ApiController
         );
     }
 
+    /**
+     * Get an author.
+     * 
+     * Retrieves all users that created a ticket.
+     * 
+     * @group Showing Authors
+     */
     public function show(User $author)
     {
         if ($this->include('tickets')) {
